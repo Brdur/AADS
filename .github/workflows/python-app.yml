@@ -7,7 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    env:
+      super_secret: ${{ secrets.HELLO_KITTY }}
     steps:
       - name: check
         uses: actions/checkout@v2
@@ -18,10 +19,7 @@ jobs:
       - name: execute py script
         run: |
           python main.py
-        env:
-          'HELLO_KITTY': ${{secrets.HELLO_KITTY}}
       - name: bah
-      
         run: echo ${{secrets.HELLO_KITTY}}
       - if: ${{ env.HELLO_KITTY != '' }}
         run: echo 'This step will only run if the secret has a value set.'
