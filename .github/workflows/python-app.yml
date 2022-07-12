@@ -15,6 +15,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8 #install the python needed
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
       - name: execute py script
         run: |
           python main.py
