@@ -1,4 +1,4 @@
 import os
-a = os.environ.get('HELLO KITTY', 'NO HELLO FOR YOU')
+a = os.environ.get('HELLO_KITTY', 'NO HELLO FOR YOU')
 print(a)
 ##
