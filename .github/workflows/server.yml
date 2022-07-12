@@ -10,9 +10,10 @@ jobs:
       - name: ls -a via OPEN SSH Private Key
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: pm2 start 0
+          command: pm2 stop 0
           host: ${{ secrets.HHOST }}
           username: rem
-          password: ${{ secrets.PPASSWORD }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
         env:
           CI: true
