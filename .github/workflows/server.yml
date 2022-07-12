@@ -13,7 +13,6 @@ jobs:
           command: pm2 stop 0
           host: ${{ secrets.HHOST }}
           username: rem
-          passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
         env:
           CI: true
