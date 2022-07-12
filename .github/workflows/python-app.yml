@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: check
         uses: actions/checkout@v2
@@ -19,4 +20,3 @@ jobs:
           python main.py
         env:
           'HELLO KITTY': 'HELLO BEAR'
-
