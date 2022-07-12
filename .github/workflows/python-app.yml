@@ -3,22 +3,20 @@ name: Run Script
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - name: check
-          uses: actions/checkout@v2
-        - name: install
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.8 #install the python needed
-        - name: execute py script
-          run: |
-            python main.py
-          env:
-            'HELLO KITTY': 'HELLO BEAR'
-        
+      - name: check
+        uses: actions/checkout@v2
+      - name: install
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+      - name: execute py script
+        run: |
+          python main.py
+        env:
+          'HELLO KITTY': 'HELLO BEAR'
+
