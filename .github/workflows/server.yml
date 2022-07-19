@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ls -a via OPEN SSH Private Key
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: pm2 stop 0
-          host: ${{ secrets.HHOST }}
-          username: rem
-          privateKey: ${{ secrets.PRIVATE_KEY }}
-        env:
-          CI: true
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HHOST }}
+        username: root
+        key: ${{ secrets.PRIVATE_KEY }}
+        script: |
+          whoami
+          ls -al
